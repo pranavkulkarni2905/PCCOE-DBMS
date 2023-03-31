@@ -21,14 +21,14 @@ city varchar2(400),
 pincode varchar2(400)
 );
 
-insert into customer values(101,'xyz','pqr');
-insert into customer values(102,'abc','lmn');
+- insert into customer values(101,'xyz','pqr');
+- insert into customer values(102,'abc','lmn');
 
 
-insert into address values(101,'pune','akurdi','MH','pune','411011');
-insert into address values(102,'mumbai','pimpri','Pune','123432');
+- insert into address values(101,'pune','akurdi','MH','pune','411011');
+- insert into address values(102,'mumbai','pimpri','Pune','123432');
 
- select * from address where cust_no in (select cust_no from address where fname='xyz' and lname='pqr');
+- select * from address where cust_no in (select cust_no from address where fname='xyz' and lname='pqr');
 
 
 ## 2.Create following Tables
@@ -55,16 +55,16 @@ amt number
 );
 
 
-insert into customer values(101,'pranav','kulkarni');
-insert into customer values(102,'ritish','shelke');
+- insert into customer values(101,'pranav','kulkarni');
+- insert into customer values(102,'ritish','shelke');
 
-insert into account_fd values(101,'f11');
-insert into account_fd values(102,'f12');
+- insert into account_fd values(101,'f11');
+- insert into account_fd values(102,'f12');
 
-insert into fd_details values('f11',14000);
-insert into fd_details values('f12',2000);
+- insert into fd_details values('f11',14000);
+- insert into fd_details values('f12',2000);
 
-select * from customer where custno in (select codeno from account_fd where acc_fd_no in (select fd_sr_no from fd_details where amt>5000));
+- select * from customer where custno in (select codeno from account_fd where acc_fd_no in (select fd_sr_no from fd_details where amt>5000));
 
 ## 3. Create following Tables
 ## emp_mstr(e_mpno,f_name,l_name,m_name,dept,desg,branch_no)
@@ -87,13 +87,13 @@ desg varchar2(400),
 branch_no varchar2(400) references branch(branch_no)
 );
 
-insert into branch values('AMAZON Akurdi','b101');
-insert into branch values('AMAZON Pimpri','b102');
+- insert into branch values('AMAZON Akurdi','b101');
+- insert into branch values('AMAZON Pimpri','b102');
 
-insert into emp values(101,'pranav','kulkarni','digambar','project','SDE1','b101');
-insert into emp values(102,'gauri','ghodake','kishor','HR','Manager','b102');
+- insert into emp values(101,'pranav','kulkarni','digambar','project','SDE1','b101');
+- insert into emp values(102,'gauri','ghodake','kishor','HR','Manager','b102');
 
- select emp.emp_no , emp.fname,emp.lname,emp.mname,emp.dept,emp.desg,emp.branch_no,branch.name from emp inner join branch on emp.branch_no=branch.branch_no;
+- select emp.emp_no , emp.fname,emp.lname,emp.mname,emp.dept,emp.desg,emp.branch_no,branch.name from emp inner join branch on emp.branch_no=branch.branch_no;
 
 
 ## 4. Create following Tables
@@ -118,17 +118,17 @@ contact_type varchar2(400),
 contact_data varchar2(400)
 );
 
-insert into emp values (101,'pranav','kulkarni','digambar','computer');
-insert into emp values (102,'gauri','ghodake','kishor','IT');
-insert into emp values (103,'ritsih','sheleke','Vijay','Mechanical');
+- insert into emp values (101,'pranav','kulkarni','digambar','computer');
+- insert into emp values (102,'gauri','ghodake','kishor','IT');
+- insert into emp values (103,'ritsih','sheleke','Vijay','Mechanical');
 
-insert into contact_details values(101,'phone','9879878');
-insert into contact_details values(102,'email','abc@gmail.com');
-insert into contact_details values(104,'linedin','linkedin/pranavk');
+- insert into contact_details values(101,'phone','9879878');
+- insert into contact_details values(102,'email','abc@gmail.com');
+- insert into contact_details values(104,'linedin','linkedin/pranavk');
 
- select emp.emp_no,emp.fname,emp.lname,emp.mname,emp.dept,contact_details.contact_type,contact_details.contact_data from emp left join contact_details on emp.emp_no=contact_details.code_no;
+ - select emp.emp_no,emp.fname,emp.lname,emp.mname,emp.dept,contact_details.contact_type,contact_details.contact_data from emp left join contact_details on emp.emp_no=contact_details.code_no;
 
- select emp.emp_no,emp.fname,emp.lname,emp.mname,emp.dept,contact_details.contact_type,contact_details.contact_data from emp right join contact_details on emp.emp_no=contact_details.code_no;
+ - select emp.emp_no,emp.fname,emp.lname,emp.mname,emp.dept,contact_details.contact_type,contact_details.contact_data from emp right join contact_details on emp.emp_no=contact_details.code_no;
 
 
 
